@@ -1,0 +1,20 @@
+function helm_switch_supported_versions() {
+  curl -s "https://api.github.com/repos/helm/helm/releases?per_page=100" | jq -r ".[].name" | awk NF > ~/.local/helm_supported_versions
+  cat ~/.local/helm_supported_versions
+}
+
+function helm2_switch() {
+   mkdir -p ~/.local/helm
+   curl -o ~/.local/helm/helm.tgz "https://get.helm.sh/helm-v2.14.2-darwin-amd64.tar.gz" --silent
+   mkdir -p ~/.local/helm/bins
+   tar xf ~/.local/helm/helm.tgz -C ~/.local/helm/bins
+   ln -sf ~/.local/helm/bins/darwin-amd64/helm ~/.local/bin/helm
+}
+
+function helm3_switch() {
+   mkdir -p ~/.local/helm
+   curl -o ~/.local/helm/helm.tgz "https://get.helm.sh/helm-v3.1.2-darwin-amd64.tar.gz" --silent
+   mkdir -p ~/.local/helm/bins
+   tar xf ~/.local/helm/helm.tgz -C ~/.local/helm/bins
+   ln -sf ~/.local/helm/bins/darwin-amd64/helm ~/.local/bin/helm
+}
