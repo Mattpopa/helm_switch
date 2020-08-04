@@ -1,4 +1,4 @@
-For fast switching between helm2 and helm3 include `helm_switch` to your bash profile:
+For fast switching between helm2 and helm3 add `helm_switch` at ` ~/.local/sources/helm_switch` and then include `helm_switch` to your bash profile:
 
     echo 'source ~/.local/sources/helm_switch >> ~/.bash_profile'
     echo 'export PATH="~/.local/bin:$PATH" >> ~/.bash_profile'
